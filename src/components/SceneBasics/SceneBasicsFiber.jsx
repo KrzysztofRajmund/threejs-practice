@@ -29,7 +29,7 @@ const Box = (props) => {
 const SceneBasicsFiber = () => {
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-      <Canvas style={{ background: "blue" }} camera={{ position: [3, 3, 3] }}>
+      <Canvas style={{ background: "black" }} camera={{ position: [3, 3, 3] }}>
         <Box position={[0, 0, 1.5]} />
         <Orbit />
         <axesHelper args={[5]} />
