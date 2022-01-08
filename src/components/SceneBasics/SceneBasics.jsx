@@ -1,4 +1,3 @@
-import React from "react";
 import * as THREE from "three";
 
 const SceneBasics = () => {
@@ -20,7 +19,7 @@ const SceneBasics = () => {
   //create mesh
   const geometry = new THREE.BoxGeometry();
   const material = new THREE.MeshBasicMaterial({
-    color: "#7b7b7b",
+    color: "red",
   });
   camera.position.z = 5;
   const cube = new THREE.Mesh(geometry, material);
