@@ -8,6 +8,7 @@ import Texture from "./GeometryLightMaterialsTextures/Texture";
 import Events from "./EventsAndControls/Events";
 import DragControls from "./EventsAndControls/DragControls";
 import PhysicsComponent from "./PhysicsAndModells/PhysicsComponent";
+import Modells from "./PhysicsAndModells/Modells";
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
       {/* <Texture /> */}
       {/* <Events /> */}
       {/* <DragControls /> */}
-      <PhysicsComponent />
+      {/* <PhysicsComponent /> */}
+      <Modells />
     </div>
   );
 };
