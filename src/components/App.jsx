@@ -6,6 +6,7 @@ import LightsShadows from "./GeometryLightMaterialsTextures/LightsShadows";
 import Materials from "./GeometryLightMaterialsTextures/Materials";
 import Texture from "./GeometryLightMaterialsTextures/Texture";
 import Events from "./EventsAndControls/Events";
+import DragControls from "./EventsAndControls/DragControls";
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
       {/* <LightsShadows /> */}
       {/* <Materials /> */}
       {/* <Texture /> */}
-      <Events />
+      {/* <Events /> */}
+      <DragControls />
     </div>
   );
 };
