@@ -174,8 +174,7 @@ const Modells = () => {
         <Orbit />
         <axesHelper args={[5]} />
         <Physics>
-          <Draggable>
-            <Bulb position={[0, 3, 0]} />
+          <Draggable transformGroup>
             <Suspense fallback={null}>
               <Model
                 path="/robot/scene.gltf"
@@ -183,6 +182,9 @@ const Modells = () => {
                 position={[2, 0, -2]}
               />
             </Suspense>
+          </Draggable>
+          <Draggable>
+            <Bulb position={[0, 3, 0]} />
             <Suspense fallback={null}>
               <Box position={[-2, 1.5, 2]} />
             </Suspense>
