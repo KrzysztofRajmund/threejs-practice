@@ -23,6 +23,20 @@ const Draggable = (props) => {
     controlsRef.current.addEventListener("hoveroff", () => {
       scene.orbitControls.enabled = true;
     });
+    controlsRef.current.addEventListener("dragstart", (e) => {
+      e.object.api.mass.set(0);
+    });
+    controlsRef.current.addEventListener("dragend", (e) => {
+      e.object.api.mass.set(1);
+    });
+    controlsRef.current.addEventListener("drag", (e) => {
+      // useBox
+      // copy(): pass object
+      // set(): pass comma sereated values
+      e.object.api.position.copy(e.object.position);
+      //prevent bouncing when touching other object
+      e.object.api.velocity.set(0, 0, 0);
+    });
   }, [boxChildren, scene.orbitControls]);
 
   return (

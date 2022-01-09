@@ -1,4 +1,5 @@
 import React, { useRef, Suspense, useMemo } from "react";
+import { Physics, useBox } from "@react-three/cannon";
 import * as THREE from "three";
 import {
   Canvas,
@@ -7,11 +8,11 @@ import {
   useLoader,
   extend,
 } from "@react-three/fiber";
-//components
 import Draggable from "../Draggable";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 extend({ OrbitControls });
+
 // ORBIT COMPONENT TO SHOW ORBIT HELPERS
 const Orbit = () => {
   const { camera, gl } = useThree();
@@ -23,12 +24,8 @@ const Orbit = () => {
 
 // MAIN MESH OBJECT COMPONENT
 const Box = (props) => {
-  const ref = useRef();
+  const [ref, api] = useBox(() => ({ mass: 1, ...props }));
   const texture = useLoader(THREE.TextureLoader, "/wood.jpg");
-  useFrame((state) => {
-    ref.current.rotation.y += 0.01;
-    ref.current.rotation.x += 0.01;
-  });
 
   const pointerDown = (e) => {
     e.object.active = true;
@@ -61,6 +58,7 @@ const Box = (props) => {
 
   return (
     <mesh
+      api={api}
       ref={ref}
       {...props}
       castShadow
@@ -98,15 +96,16 @@ const Background = (props) => {
       new THREE.WebGLCubeRenderTarget(
         texture.image.height
       ).fromEquirectangularTexture(gl, texture),
-    [gl, texture]
+    []
   );
   return <primitive attach="background" object={formatted} />;
 };
 
 // FLOOR COMPONENT
 const Floor = (props) => {
+  const [ref, api] = useBox(() => ({ args: [15, 1, 15], ...props }));
   return (
-    <mesh {...props} receiveShadow>
+    <mesh ref={ref} {...props} receiveShadow>
       <boxBufferGeometry args={[15, 1, 15]} />
       <meshPhysicalMaterial />
     </mesh>
@@ -125,7 +124,7 @@ const Bulb = (props) => {
 };
 
 //MAIN APP COMPONENT
-const DragControls = () => {
+const PhysicsComponent = () => {
   const changeColor = (e) => {
     if (!window.activeMesh) return;
     window.activeMesh.material.color = new THREE.Color(
@@ -171,24 +170,26 @@ const DragControls = () => {
       >
         {/* <fog attach="fog" args={["white", 1, 20]} /> */}
         <ambientLight intensity={0.2} />
-        <Bulb position={[0, 3, 0]} />
         <Orbit />
         <axesHelper args={[5]} />
-        <Draggable>
+        <Physics>
+          <Draggable>
+            <Bulb position={[0, 3, 0]} />
+            <Suspense fallback={null}>
+              <Box position={[2, 1.2, -2]} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Box position={[-2, 1.5, 2]} />
+            </Suspense>
+          </Draggable>
           <Suspense fallback={null}>
-            <Box position={[2, 1.2, -2]} />
+            <Background />
           </Suspense>
-          <Suspense fallback={null}>
-            <Box position={[-2, 1.5, 2]} />
-          </Suspense>
-        </Draggable>
-        <Suspense fallback={null}>
-          <Background />
-        </Suspense>
-        <Floor position={[0, -0.5, 0]} />
+          <Floor position={[0, -0.5, 0]} />
+        </Physics>
       </Canvas>
     </div>
   );
 };
 
-export default DragControls;
+export default PhysicsComponent;
