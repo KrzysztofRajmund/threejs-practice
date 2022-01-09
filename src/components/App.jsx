@@ -4,6 +4,7 @@ import SceneBasicsFiber from "./SceneBasics/SceneBasicsFiber";
 import Geometry from "./GeometryLightMaterialsTextures/Geometry";
 import LightsShadows from "./GeometryLightMaterialsTextures/LightsShadows";
 import Materials from "./GeometryLightMaterialsTextures/Materials";
+import Texture from "./GeometryLightMaterialsTextures/Texture";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       {/* <SceneBasicsFiber /> */}
       {/* <Geometry /> */}
       {/* <LightsShadows /> */}
-      <Materials />
+      {/* <Materials /> */}
+      <Texture />
     </div>
   );
 };
