@@ -1,0 +1,11 @@
+Model Information:
+* title:	Riot Mech Model
+* source:	https://sketchfab.com/3d-models/riot-mech-model-7b8738c8b0ed4561814856503a4642fb
+* author:	SchrisArt (https://sketchfab.com/SchrisArt)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Riot Mech Model" (https://sketchfab.com/3d-models/riot-mech-model-7b8738c8b0ed4561814856503a4642fb) by SchrisArt (https://sketchfab.com/SchrisArt) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

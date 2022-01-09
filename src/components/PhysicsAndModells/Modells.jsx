@@ -9,6 +9,7 @@ import {
   extend,
 } from "@react-three/fiber";
 import Draggable from "../Draggable";
+import Model from "./Model";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 extend({ OrbitControls });
@@ -176,7 +177,11 @@ const Modells = () => {
           <Draggable>
             <Bulb position={[0, 3, 0]} />
             <Suspense fallback={null}>
-              <Box position={[2, 1.2, -2]} />
+              <Model
+                path="/robot/scene.gltf"
+                scale={new Array(3).fill(0.3)}
+                position={[2, 0, -2]}
+              />
             </Suspense>
             <Suspense fallback={null}>
               <Box position={[-2, 1.5, 2]} />
