@@ -5,6 +5,7 @@ import Geometry from "./GeometryLightMaterialsTextures/Geometry";
 import LightsShadows from "./GeometryLightMaterialsTextures/LightsShadows";
 import Materials from "./GeometryLightMaterialsTextures/Materials";
 import Texture from "./GeometryLightMaterialsTextures/Texture";
+import Events from "./EventsAndControls/Events";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       {/* <Geometry /> */}
       {/* <LightsShadows /> */}
       {/* <Materials /> */}
-      <Texture />
+      {/* <Texture /> */}
+      <Events />
     </div>
   );
 };
