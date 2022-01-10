@@ -12,6 +12,7 @@ import Draggable from "../Draggable";
 import Model from "../PhysicsAndModells/Model";
 import BoundingBox from "../BoundingBox";
 import CameraControls from "./CameraControls";
+import CameraButtons from "./CameraButtons";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 extend({ OrbitControls });
@@ -166,6 +167,7 @@ const Camera = () => {
           onClick={changeColor}
         ></div>
       </div>
+      <CameraButtons />
       <Canvas
         style={{ background: "black" }}
         camera={{ position: [6, 6, 6] }}
