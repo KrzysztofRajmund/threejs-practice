@@ -9,6 +9,7 @@ import Events from "./EventsAndControls/Events";
 import DragControls from "./EventsAndControls/DragControls";
 import PhysicsComponent from "./PhysicsAndModells/PhysicsComponent";
 import Modells from "./PhysicsAndModells/Modells";
+import Camera from "./CameraAndShadows/Camera";
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
       {/* <Events /> */}
       {/* <DragControls /> */}
       {/* <PhysicsComponent /> */}
-      <Modells />
+      {/* <Modells /> */}
+      <Camera />
     </div>
   );
 };
