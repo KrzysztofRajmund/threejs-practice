@@ -10,6 +10,7 @@ import {
 } from "@react-three/fiber";
 import Draggable from "../Draggable";
 import Model from "./Model";
+import BoundingBox from "../BoundingBox";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 extend({ OrbitControls });
@@ -176,11 +177,17 @@ const Modells = () => {
         <Physics>
           <Draggable transformGroup>
             <Suspense fallback={null}>
-              <Model
-                path="/robot/scene.gltf"
-                scale={new Array(3).fill(0.3)}
-                position={[2, 0, -2]}
-              />
+              <BoundingBox
+                visible={false}
+                position={[4, 5, 2]}
+                dims={[5, 5.5, 5]}
+                offset={[0.1, -2.8, -0.2]}
+              >
+                <Model
+                  path="/robot/scene.gltf"
+                  scale={new Array(3).fill(0.3)}
+                />
+              </BoundingBox>
             </Suspense>
           </Draggable>
           <Draggable>
